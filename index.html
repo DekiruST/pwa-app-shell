@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0ea5e9">
+  <title>PWA — App Shell Demo</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <button id="menuBtn" aria-label="Abrir menú" class="hamburger" aria-controls="appNav" aria-expanded="false">☰</button>
+    <h1 class="brand">PWA App Shell</h1>
+    <div class="spacer"></div>
+    <a class="install-btn" id="installBtn" hidden>Instalar</a>
+  </header>
+
+  <div id="scrim" class="scrim" hidden></div>
+
+  <nav id="appNav" class="app-nav">
+    <a href="#/" class="nav-link" data-route>Inicio</a>
+    <a href="#/productos" class="nav-link" data-route>Productos</a>
+    <a href="#/acerca" class="nav-link" data-route>Acerca</a>
+  </nav>
+
+  <main id="appContent" class="app-content" tabindex="-1">
+    <noscript>Esta aplicación requiere JavaScript.</noscript>
+  </main>
+
+  <footer class="app-footer">
+    <small>© <span id="year"></span> PWA App Shell • Funciona sin conexión</small>
+  </footer>
+
+  <script defer src="app.js"></script>
+</body>
+</html>

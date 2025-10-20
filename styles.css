@@ -1,0 +1,140 @@
+:root{
+  --brand:#0ea5e9;
+  --ink:#0b132b;
+  --muted:#6b7280;
+  --bg:#f7fafc;
+  --card:#ffffff;
+  --ring: rgba(14,165,233,.35);
+  --headerH: 56px; 
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, 'Apple Color Emoji','Segoe UI Emoji';
+  color:var(--ink);
+  background:var(--bg);
+  display:grid;
+  grid-template-rows: auto auto 1fr auto; 
+  min-height:100dvh;
+}
+
+.app-header{
+  display:flex;align-items:center;gap:.75rem;
+  padding:.75rem 1rem;
+  background:#fff;border-bottom:1px solid #e5e7eb;
+  position:sticky;top:0;z-index:30;
+}
+.brand{margin:0;font-size:1.125rem}
+.spacer{flex:1}
+.hamburger{
+  font-size:1.25rem;
+  width:2.5rem;height:2.5rem;border-radius:.75rem;border:1px solid #e5e7eb;background:#fff;
+}
+.hamburger:focus{outline:2px solid var(--ring);outline-offset:2px}
+.install-btn{
+  border:1px solid var(--brand);
+  color:#fff;background:var(--brand);
+  padding:.5rem .75rem;border-radius:.625rem;text-decoration:none;
+  font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.06);
+}
+.install-btn:focus{outline:2px solid var(--ring);outline-offset:2px}
+
+.app-nav{
+  background:#fff;border-bottom:1px solid #e5e7eb;
+  display:grid;grid-auto-flow:column;gap:.25rem;overflow:auto;
+  z-index:10;
+}
+.app-nav a{
+  padding:.75rem 1rem;text-decoration:none;color:var(--ink);
+  border-bottom:3px solid transparent;font-weight:600;white-space:nowrap;
+}
+.app-nav a.active{border-bottom-color:var(--brand);color:#0a5b78}
+
+.app-content{
+  padding:1rem;max-width:1000px;margin-inline:auto;width:100%;
+}
+
+@media (max-width: 800px){
+  body{ 
+    grid-template-rows: auto 1fr auto; 
+  }
+
+  .app-header{
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background:#fff;
+  }
+
+  /* Scrim para tapar el fondo y cerrar al tocar fuera */
+  .scrim{
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.25);
+    backdrop-filter: blur(1px);
+    opacity: 0; visibility: hidden;
+    transition: opacity .2s ease;
+    z-index: 900;
+  }
+  .scrim.show{ opacity:1; visibility:visible; }
+
+  /* Menú overlay fijo justo bajo el header */
+  .app-nav{
+    position: fixed;
+    top: var(--headerH, 64px);
+    left: 0; right: 0;
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    box-shadow:0 8px 24px rgba(0,0,0,.1);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .25s ease;
+    z-index: 1000;
+    display:block;
+  }
+  .app-nav.is-open{ max-height: 60vh; }
+  .app-nav a{ display:block; border-bottom:1px dashed #e5e7eb; }
+
+  /* Empuja el contenido por debajo del header sticky */
+  .app-content{
+    padding-top: calc(var(--headerH, 64px) + 12px) !important;
+  }
+
+  /* Bloquea scroll del fondo cuando el menú está abierto */
+  body.menu-open{
+    overflow: hidden;
+    height: 100dvh;
+  }
+}
+
+/* Grid de tarjetas */
+.grid{
+  display:grid;gap:1rem;
+  grid-template-columns:repeat(3,1fr);
+}
+@media (max-width: 900px){ .grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width: 600px){ .grid{ grid-template-columns:1fr;} }
+
+/* Tarjetas */
+.card{
+  background:var(--card);border:1px solid #e5e7eb;border-radius:1rem;
+  padding:1rem;box-shadow:0 2px 6px rgba(0,0,0,.04);
+}
+.card h3{margin:.25rem 0 .5rem;font-size:1rem}
+.card p{margin:.25rem 0;color:var(--muted)}
+
+/* Controles */
+.toolbar{display:flex;gap:.5rem;align-items:center;margin:.5rem 0 1rem}
+input[type="search"], button, select{
+  border:1px solid #e5e7eb;border-radius:.75rem;padding:.5rem .75rem;background:#fff;
+}
+button.primary{background:var(--brand);color:#fff;border-color:var(--brand);font-weight:600}
+button:focus,input:focus,select:focus{outline:2px solid var(--ring);outline-offset:2px}
+
+/* Footer */
+.app-footer{
+  padding:1rem;text-align:center;border-top:1px solid #e5e7eb;background:#fff;
+}
+.badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;background:#ecfeff;color:#0c4a6e;border:1px solid #a5f3fc;padding:.25rem .5rem;border-radius:.5rem}
+.muted{color:var(--muted)}

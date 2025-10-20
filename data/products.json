@@ -1,0 +1,9 @@
+{
+  "products": [
+    { "id": 1, "name": "Teclado Mecánico 60%", "price": 899.0,  "category": "Periféricos",   "description": "Compacto, switches azules y retroiluminación RGB." },
+    { "id": 2, "name": "Mouse Inalámbrico",    "price": 349.0,  "category": "Periféricos",   "description": "Preciso y ergonómico, batería de larga duración." },
+    { "id": 3, "name": "SSD NVMe 1TB",         "price": 1499.0, "category": "Almacenamiento","description": "Lectura hasta 3500MB/s, escritura 3000MB/s." },
+    { "id": 4, "name": "Audífonos Over-Ear",   "price": 599.0,  "category": "Audio",         "description": "Aislamiento pasivo y micrófono desmontable." },
+    { "id": 5, "name": "Monitor 27\" 144Hz",   "price": 4299.0, "category": "Monitores",     "description": "Panel IPS, 1ms MPRT, HDR-ready." }
+  ]
+}
