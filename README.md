@@ -40,7 +40,7 @@ pwa-app-shell/
 - **Íconos**: PNG en 192 y 512 (versiones maskable incluidas).
 - **Accesibilidad**: foco al contenedor tras navegación, botones y menús con `aria-*`.
 
-## ▶️ Cómo ejecutar
+## Cómo ejecutar
 Se requiere un **servidor estático** (por CORS del `fetch`). Opciones rápidas:
 - **Python 3**
   cd pwa-app-shell
